@@ -1,0 +1,33 @@
+{
+  "name": "node-pushover-client",
+  "description": "Send push notifications to iOS and Android using Pushover.",
+  "homepage": "https://github.com/dvdln/node-pushover-client",
+  "keywords": [
+    "pushover",
+    "pushover.net",
+    "push notification",
+    "ios"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "David Lane",
+    "url": "http://dvdln.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dvdln/node-pushover-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dvdln/node-pushover-client/issues"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "commander": "~2.1.0"
+  },
+  "main": "lib/pushover",
+  "directories": {
+    "lib": "lib",
+    "bin": "bin"
+  }
+}

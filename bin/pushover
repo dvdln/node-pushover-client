@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var Pushover = require('../lib/pushover'),
+    program = require('commander');
+
+var defaults = {
+  token: process.env.PUSHOVER_DEFAULT_APP_ID,
+  user: process.env.PUSHOVER_USER_ID
+};
+
+program
+  .version(Pushover.version)
+  .usage('[options] [title] message')
+  .option('-t, --token [id]', 'application token', String)
+  .option('-u, --user [id]', 'user token', String)
+  .option('-p, --priority [n]', 'priority (-2 to 2)', parseInt)
+  .parse(process.argv);
+
+(new Pushover()).send({
+  token:    program.token || process.env.PUSHOVER_DEFAULT_TOKEN,
+  user:     program.user  || process.env.PUSHOVER_DEFAULT_USER,
+  message:  program.args.pop(),
+  title:    program.args.pop(),
+  priority: program.priority
+});
+
