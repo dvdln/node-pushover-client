@@ -6,7 +6,8 @@
     "pushover",
     "pushover.net",
     "push notification",
-    "ios"
+    "ios",
+    "android"
   ],
   "version": "1.0.0",
   "author": {
