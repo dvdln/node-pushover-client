@@ -14,7 +14,6 @@ $ npm install node-pushover-client
 ## Usage
 [Register an application with Pushover.net](https://pushover.net/api) to get your application and user tokens. You may optionally set `PUSHOVER_DEFAULT_TOKEN` and `PUSHOVER_DEFAULT_USER` environment variables to use as default values.
 
-### Node
 ```js
 var Pushover = require('pushover');
 
@@ -31,7 +30,7 @@ pushNotification.send({
 });
 ```
 
-You can also pass the application token and/or user token along with `send()` data.
+You can also pass the application token and/or user token alongside `send()` data.
 ```js
 var pushNotification = new Pushover({
   token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi'
@@ -45,6 +44,8 @@ pushNotification.send({
 ```
 
 ### CLI Usage
+Refer to help message.
+
 ```shell
 $ pushover --help
 ```
@@ -71,14 +72,12 @@ Type: `String`
 Message title. If not specified then Pushover will use the application name as the message title.
 
 #### priority
-Type: `Number`
-Default: 0
+Type: `Number` (default: 0)
 
-Refer to [Pushover API](https://pushover.net/api#priority).
+Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
 
 #### timestamp
-Type: `Number`
-Default: current time
+Type: `Number` (default: current time)
 
 A Unix timestamp.
 The client automatically sets this to avoid messages showing up out of order on the device.
