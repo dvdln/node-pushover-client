@@ -12,7 +12,7 @@ $ npm install node-pushover-client
 ```
 
 ## Usage
-[Register an application with Pushover.net](https://pushover.net/api) to get your application and user tokens. You may optionally set `PUSHOVER_DEFAULT_TOKEN` and `PUSHOVER_DEFAULT_USER` environment variables to use as default values.
+[Register an application with Pushover.net](https://pushover.net/apps/build) to get your application and user tokens. You may optionally set `PUSHOVER_DEFAULT_TOKEN` and `PUSHOVER_DEFAULT_USER` environment variables to use as default values.
 
 ```js
 var Pushover = require('pushover');
@@ -38,14 +38,12 @@ var pushNotification = new Pushover({
 
 pushNotification.send({
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG',
-  title: 'FOR FOR YOU',
+  title: 'JUST FOR YOU',
   message: 'OH HAI, SPECIFIC USER'
 });
 ```
 
 ### CLI Usage
-Refer to help message.
-
 ```shell
 $ pushover --help
 ```
@@ -54,12 +52,12 @@ $ pushover --help
 #### token (required)
 Type: `String` (default: `PUSHOVER_DEFAULT_TOKEN` env variable)
 
-Application token you receive after [registering an application with Pushover.net](https://pushover.net/api).
+Application token you receive after [registering an application with Pushover.net](https://pushover.net/apps/build).
 
 #### user (required)
 Type: `String` (default: `PUSHOVER_DEFAULT_USER` env variable)
 
-User token. You can find this on your [Pushover.net dashboard](https://pushover.net/login).
+User token. You can find this on your [Pushover.net dashboard](https://pushover.net/dashboard).
 
 #### message (required)
 Type: `String`
@@ -79,8 +77,7 @@ Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](
 #### timestamp
 Type: `Number` (default: current time)
 
-A Unix timestamp.
-The client automatically sets this to avoid messages showing up out of order on the device.
+A Unix timestamp. The client automatically sets this to avoid messages showing up out of order on the device.
 
 ---
 
