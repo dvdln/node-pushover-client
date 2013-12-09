@@ -6,11 +6,11 @@
   "keywords": [
     "pushover",
     "pushover.net",
-    "push notification",
+    "push",
+    "notification",
     "ios",
     "android",
     "node",
-    "command line",
     "cli"
   ],
   "version": "1.0.0-beta",
@@ -21,7 +21,8 @@
   "main": "lib/pushover",
   "directories": {
     "lib": "lib",
-    "bin": "bin"
+    "bin": "bin",
+    "test": "test"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,8 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-jshint": "~0.7.2"
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-nodeunit": "~0.2.2",
+    "nodeunit": "~0.8.2"
   }
 }
