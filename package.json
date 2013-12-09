@@ -13,7 +13,7 @@
     "node",
     "cli"
   ],
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "author": {
     "name": "David Lane",
     "url": "http://dvdln.com"
