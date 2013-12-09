@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+/*!
+ * @see https://github.com/dvdln/node-pushover-client
+ * @see https://pushover.net/api
+ * @author David Lane <dvdln@live.com>
+ * @copyright David Lane 2013
+ * @license MIT
+ */
+
 'use strict';
 
 var Pushover = require('../lib/pushover'),
@@ -25,4 +33,3 @@ program
   title:    program.args.pop(),
   priority: program.priority
 });
-
