@@ -43,8 +43,9 @@ pushNotification.send({
 });
 ```
 
-### CLI Usage
+### Command Line Usage
 ```shell
+$ sudo npm -g install node-pushover-client
 $ pushover --help
 ```
 
