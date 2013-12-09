@@ -13,11 +13,6 @@
 var Pushover = require('../lib/pushover'),
     program = require('commander');
 
-var defaults = {
-  token: process.env.PUSHOVER_DEFAULT_APP_ID,
-  user: process.env.PUSHOVER_USER_ID
-};
-
 program
   .version(Pushover.version)
   .usage('[options] [title] message')
@@ -27,8 +22,8 @@ program
   .parse(process.argv);
 
 (new Pushover()).send({
-  token:    program.token || process.env.PUSHOVER_DEFAULT_TOKEN,
-  user:     program.user  || process.env.PUSHOVER_DEFAULT_USER,
+  token:    program.token,
+  user:     program.user,
   message:  program.args.pop(),
   title:    program.args.pop(),
   priority: program.priority
