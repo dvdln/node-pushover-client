@@ -23,6 +23,7 @@ module.exports = {
     });
 
     push.send({
+      title: 'TITLE',
       message: 'MESSAGE',
       timestamp: 123,
       priority: -1,
@@ -34,10 +35,8 @@ module.exports = {
         test.equal(req.encoding, 'utf8');
         test.deepEqual(res, { status: 1 });
 
-        test.equal(
-          req.data,
-          'token=TOKEN&user=USER&timestamp=123&priority=-1&message=MESSAGE\n'
-        );
+        test.equal(req.data, 'token=TOKEN&user=USER&title=TITLE&' +
+          'message=MESSAGE&timestamp=123&priority=-1\n');
 
         test.done();
       }
