@@ -1,9 +1,6 @@
 # node-pushover-client
 Send push notifications to iOS and Android using [Pushover](http://pushover.net).
 
-## Progress
-This project is [currently in beta](https://github.com/dvdln/node-pushover-client/issues?milestone=1).
-
 ## Installation
 Install with [npm](https://npmjs.org).
 
