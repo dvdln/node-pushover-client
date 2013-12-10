@@ -3,8 +3,8 @@
 var https = require('./mock/https'),
     Pushover = require('../lib/pushover');
 
-process.env.PUSHOVER_DEFAULT_TOKEN = 'ENV_TOKEN';
-process.env.PUSHOVER_DEFAULT_USER = 'ENV_USER';
+process.env.PUSHOVER_TOKEN = 'ENV_TOKEN';
+process.env.PUSHOVER_USER = 'ENV_USER';
 
 module.exports = {
   setUp: function (callback) {
