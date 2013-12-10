@@ -72,10 +72,35 @@ Type: `Number` (default: 0)
 
 Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
 
+#### expires
+Type: `String`
+
+...
+
 #### timestamp
 Type: `Number` (default: current time)
 
 A Unix timestamp. The client automatically sets this to avoid messages showing up out of order on the device.
+
+#### device
+Type: `String`
+
+Name of device to send the notification.
+
+#### url
+Type `String`
+
+Supplementary URL.
+
+#### urlTitle
+Type: `String` (default: URL)
+
+Title for supplementary URLs.
+
+#### sound
+Type: `String`
+
+Name of a [supported sound](https://pushover.net/api#sounds) to play on the app.
 
 ---
 
