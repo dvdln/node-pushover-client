@@ -1,10 +1,9 @@
 'use strict';
 
+process.argv.push('--config', './test/fixtures/pushoverrc');
+
 var https = require('./mock/https'),
     Pushover = require('../lib/pushover');
-
-process.env.PUSHOVER_TOKEN = 'ENV_TOKEN';
-process.env.PUSHOVER_USER = 'ENV_USER';
 
 module.exports = {
   setUp: function (callback) {
