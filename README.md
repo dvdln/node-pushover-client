@@ -1,6 +1,8 @@
 # node-pushover-client
 Send push notifications to iOS and Android using [Pushover](http://pushover.net).
 
+[![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
+
 ## Installation
 Install with [npm](https://npmjs.org).
 
