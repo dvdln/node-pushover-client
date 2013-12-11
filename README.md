@@ -47,17 +47,17 @@ $ pushover --help
 ```
 
 ### Options
-#### token (required)
+#### token *(required)*
 Type: `String` (default: `PUSHOVER_DEFAULT_TOKEN` env variable)
 
 Application token you receive after [registering an application with Pushover.net](https://pushover.net/apps/build).
 
-#### user (required)
+#### user *(required)*
 Type: `String` (default: `PUSHOVER_DEFAULT_USER` env variable)
 
 User token. You can find this on your [Pushover.net dashboard](https://pushover.net/dashboard).
 
-#### message (required)
+#### message *(required)*
 Type: `String`
 
 Message to push to your mobile device.
@@ -72,10 +72,15 @@ Type: `Number` (default: 0)
 
 Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
 
-#### expires
-Type: `String`
+#### expires *(required if priority is 2)*
+Type: `Number`
 
-...
+Number of seconds to keep trying to send a priority-2 message.
+
+#### retry *(required if priority is 2)*
+Type: `Number`
+
+Interval (in seconds) between priority-2 message retries.
 
 #### timestamp
 Type: `Number` (default: current time)
