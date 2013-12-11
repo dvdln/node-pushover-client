@@ -41,5 +41,8 @@
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-nodeunit": "~0.2.2",
     "nodeunit": "~0.8.2"
+  },
+  "scripts": {
+    "test": "grunt"
   }
 }
