@@ -21,30 +21,25 @@ var pushNotification = new Pushover({
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG'
 });
 
-pushNotification.send({
-  message: 'OH HAI',
-  done: function (res) {
-    console.log(res);
-  }
+var req = pushNotification.send({ message: 'OH HAI' });
+
+req.then(function (res) {
+  console.log(res);
 });
 ```
 
 You can also pass the application token and/or user token alongside `send()` data.
 ```js
-var pushNotification = new Pushover({
-  token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi'
-});
-
-pushNotification.send({
+var req = (new Pushover()).send({
+  token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi',
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG',
-  title: 'JUST FOR YOU',
-  message: 'OH HAI, SPECIFIC USER'
+  message: 'OH HAI'
 });
 ```
 
 ### Command Line Usage
 ```shell
-$ sudo npm -g install node-pushover-client
+$ npm -g install node-pushover-client
 $ pushover --help
 ```
 
