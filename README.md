@@ -50,12 +50,12 @@ $ pushover --help
 
 ### Options
 #### token *(required)*
-Type: `String` (default: `PUSHOVER_TOKEN` env variable)
+Type: `String` Default: `PUSHOVER_TOKEN` env variable
 
 Application token you receive after [registering an application with Pushover.net](https://pushover.net/apps/build).
 
 #### user *(required)*
-Type: `String` (default: `PUSHOVER_USER` env variable)
+Type: `String` Default: `PUSHOVER_USER` env variable
 
 User token. You can find this on your [Pushover.net dashboard](https://pushover.net/dashboard).
 
@@ -70,7 +70,7 @@ Type: `String`
 Message title. If not specified then Pushover will use the application name as the message title.
 
 #### priority
-Type: `Number` (default: 0)
+Type: `Number` Default: 0
 
 Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
 
@@ -85,7 +85,7 @@ Type: `Number`
 Interval (in seconds) between priority-2 message retries.
 
 #### timestamp
-Type: `Number` (default: current time)
+Type: `Number` Default: current time
 
 A Unix timestamp. The client automatically sets this to avoid messages showing up out of order on the device.
 
@@ -100,7 +100,7 @@ Type `String`
 Supplementary URL.
 
 #### urlTitle
-Type: `String` (default: URL)
+Type: `String` Default: URL
 
 Title for supplementary URLs.
 
