@@ -18,75 +18,94 @@ module.exports = {
   },
 
   testPush: function (test) {
-    var push = new Pushover({
-      token: 'TOKEN',
-      user: 'USER',
-      unknown: 'foo'
-    });
+    var push = new Pushover(
+      {
+        token: 'TOKEN',
+        user: 'USER',
+        unknown: 'foo'
+      }
+    );
 
-    push.send({
-      title: 'TITLE',
-      message: 'MESSAGE',
-      timestamp: 123,
-      priority: -1,
-      unknown: 'bar',
-
-      done: function (res) {
+    push.send(
+      {
+        title: 'TITLE',
+        message: 'MESSAGE',
+        timestamp: 123,
+        priority: -1,
+        url: 'http://url.test',
+        urlTitle: 'URL',
+        sound: 'SOUND',
+        device: 'DEVICE',
+        unknown: 'bar'
+      }
+    ).then(
+      function (res) {
         var req = https.mock.getRequest();
 
         test.equal(req.encoding, 'utf8');
-        test.deepEqual(res, { status: 1 });
+        test.deepEqual(res, { status: 1, success: true });
         test.equal(req.data, 'token=TOKEN&user=USER&title=TITLE&' +
-          'message=MESSAGE&timestamp=123&priority=-1\n');
+            'message=MESSAGE&timestamp=123&priority=-1&device=DEVICE&' +
+            'url=http%3A%2F%2Furl.test&url_title=URL&sound=SOUND\n');
 
         test.done();
       }
-    });
+    );
   },
 
   testMinimal: function (test) {
-    (new Pushover()).send({
-      message: 'MESSAGE',
-      timestamp: null,
-
-      done: function (res) {
+    (new Pushover()).send(
+      {
+        message: 'MESSAGE',
+        timestamp: null
+      }
+    ).then(
+      function (res) {
         var req = https.mock.getRequest();
 
-        test.deepEqual(res, { status: 1 });
+        test.deepEqual(res, { status: 1, success: true });
         test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE\n');
 
         test.done();
       }
-    });
+    );
   },
 
   testEmergencyPriority: function (test) {
-    (new Pushover()).send({
-      message: 'MESSAGE',
-      timestamp: null,
-      priority: 2,
-      retry: 30,
-      expire: 3600,
-
-      done: function (res) {
+    (new Pushover()).send(
+      {
+        message: 'MESSAGE',
+        timestamp: null,
+        priority: 2,
+        retry: 30,
+        expire: 3600
+      }
+    ).then(
+      function (res) {
         var req = https.mock.getRequest();
 
-        test.deepEqual(res, { status: 1 });
+        test.deepEqual(res, { status: 1, success: true });
         test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE&' +
             'priority=2&expire=3600&retry=30\n');
 
         test.done();
       }
-    });
+    );
   },
 
   testEmergencyPriorityBadData: function (test) {
-    (new Pushover()).send({
-      message: 'MESSAGE',
-      timestamp: null,
-      priority: 2,
-
-      done: function (res) {
+    (new Pushover()).send(
+      {
+        message: 'MESSAGE',
+        timestamp: null,
+        priority: 2
+      }
+    ).then(
+      function () {
+        test.ok(false, 'Call should fail.');
+        test.done();
+      },
+      function (res) {
         var req = https.mock.getRequest();
 
         test.ok(res.error.length > 0);
@@ -95,6 +114,30 @@ module.exports = {
 
         test.done();
       }
-    });
+    );
+  },
+
+  testServiceFailure: function (test) {
+    https.mock.setResponse('{"status":0,"errors":["FAIL"]}');
+
+    (new Pushover()).send(
+      {
+        message: 'MESSAGE',
+        timestamp: null
+      }
+    ).then(
+      function () {
+        test.ok(false, 'Call should fail.');
+        test.done();
+      },
+      function (res) {
+        test.deepEqual(res, {
+          status: 0,
+          errors: ['FAIL'],
+          success: false
+        });
+        test.done();
+      }
+    );
   }
 };

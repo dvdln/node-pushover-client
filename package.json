@@ -33,15 +33,16 @@
   },
   "dependencies": {
     "lodash": "~2.4.1",
-    "commander": "~2.1.0"
+    "commander": "~2.1.0",
+    "rc": "~0.3.2",
+    "q": "~0.9.7"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-nodeunit": "~0.2.2",
-    "nodeunit": "~0.8.2",
-    "rc": "~0.3.2"
+    "nodeunit": "~0.8.2"
   },
   "scripts": {
     "test": "grunt"
