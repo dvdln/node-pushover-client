@@ -2,6 +2,8 @@
 Send push notifications to iOS and Android using [Pushover](http://pushover.net).
 
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
+[![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
+[![devDependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
 
 ## Installation
 Install with [npm](https://npmjs.org).
