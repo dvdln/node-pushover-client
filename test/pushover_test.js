@@ -44,8 +44,8 @@ module.exports = {
 
         test.equal(req.encoding, 'utf8');
         test.deepEqual(res, { status: 1, success: true });
-        test.equal(req.data, 'token=TOKEN&user=USER&title=TITLE&' +
-            'message=MESSAGE&timestamp=123&priority=-1&device=DEVICE&' +
+        test.equal(req.data, 'token=TOKEN&user=USER&message=MESSAGE&' +
+            'timestamp=123&title=TITLE&priority=-1&device=DEVICE&' +
             'url=http%3A%2F%2Furl.test&url_title=URL&sound=SOUND\n');
 
         test.done();
