@@ -1,19 +1,21 @@
+[![Pushover](./site/logo.png)][site]
+
 # node-pushover-client
-Send push notifications to iOS and Android using [Pushover](http://pushover.net).
+> Send push notifications to iOS and Android using [Pushover][site].
 
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
 [![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
 [![devDependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
 
 ## Installation
-Install with [npm](https://npmjs.org).
+Install with [npm][npm].
 
 ```shell
 $ npm install node-pushover-client
 ```
 
 ## Usage
-[Register an application with Pushover.net](https://pushover.net/apps/build) to get your application and user tokens. You may optionally set `PUSHOVER_TOKEN` and `PUSHOVER_USER` environment variables to use as default values.
+[Register an application with Pushover.net][site-app] to get your application and user tokens. You may optionally set `PUSHOVER_TOKEN` and `PUSHOVER_USER` environment variables to use as default values.
 
 ```js
 var Pushover = require('pushover');
@@ -49,12 +51,12 @@ $ pushover --help
 #### token *(required)*
 Type: `String` Default: `PUSHOVER_TOKEN` env variable
 
-Application token you receive after [registering an application with Pushover.net](https://pushover.net/apps/build).
+Application token you receive after [registering an application with Pushover.net][site-app].
 
 #### user *(required)*
 Type: `String` Default: `PUSHOVER_USER` env variable
 
-User token. You can find this on your [Pushover.net dashboard](https://pushover.net/dashboard).
+User token. You can find this on your [Pushover.net dashboard][site-dashboard].
 
 #### message *(required)*
 Type: `String`
@@ -69,7 +71,7 @@ Message title. If not specified then Pushover will use the application name as t
 #### priority
 Type: `Number` Default: 0
 
-Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
+Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API][api-priority] for more information.
 
 #### expires *(required if priority is 2)*
 Type: `Number`
@@ -104,9 +106,17 @@ Title for supplementary URLs.
 #### sound
 Type: `String`
 
-Name of a [supported sound](https://pushover.net/api#sounds) to play on the app.
+Name of a [supported sound][api-sounds] to play on the app.
 
 ---
+
+  [site]:           https://pushover.net                "Pushover"
+  [site-app]:       https://pushover.net/apps/build     "Pushover: Register Application"
+  [site-dashboard]: https://pushover.net/dashboard      "Pushover: Dashboard"
+  [api]:            https://pushover.net/api            "Pushover API"
+  [api-priority]:   https://pushover.net/api#priority   "Pushover API: Priority"
+  [api-sounds]:     https://pushover.net/api#sounds     "Pushover API: Sounds"
+  [npm]:            https://npmjs.org                   "npm"
 
 Copyright (c) 2013 [David Lane](http://dvdln.com)
 
