@@ -13,7 +13,9 @@ module.exports = (grunt) ->
     pkg: pkg
 
     watch:
-      all: cfg.scripts
+      all:
+        files: cfg.scripts
+        tasks: ['jshint']
 
     jshint:
       options: grunt.file.readJSON '.jshintrc'
