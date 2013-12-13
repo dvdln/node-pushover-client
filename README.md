@@ -2,6 +2,8 @@
 Send push notifications to iOS and Android using [Pushover](http://pushover.net).
 
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
+[![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
+[![devDependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
 
 ## Installation
 Install with [npm](https://npmjs.org).
@@ -21,41 +23,36 @@ var pushNotification = new Pushover({
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG'
 });
 
-pushNotification.send({
-  message: 'OH HAI',
-  done: function (res) {
-    console.log(res);
-  }
+var req = pushNotification.send({ message: 'OH HAI' });
+
+req.then(function (res) {
+  console.log(res);
 });
 ```
 
 You can also pass the application token and/or user token alongside `send()` data.
 ```js
-var pushNotification = new Pushover({
-  token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi'
-});
-
-pushNotification.send({
+var req = (new Pushover()).send({
+  token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi',
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG',
-  title: 'JUST FOR YOU',
-  message: 'OH HAI, SPECIFIC USER'
+  message: 'OH HAI'
 });
 ```
 
 ### Command Line Usage
 ```shell
-$ sudo npm -g install node-pushover-client
+$ npm -g install node-pushover-client
 $ pushover --help
 ```
 
 ### Options
 #### token *(required)*
-Type: `String` (default: `PUSHOVER_TOKEN` env variable)
+Type: `String` Default: `PUSHOVER_TOKEN` env variable
 
 Application token you receive after [registering an application with Pushover.net](https://pushover.net/apps/build).
 
 #### user *(required)*
-Type: `String` (default: `PUSHOVER_USER` env variable)
+Type: `String` Default: `PUSHOVER_USER` env variable
 
 User token. You can find this on your [Pushover.net dashboard](https://pushover.net/dashboard).
 
@@ -70,7 +67,7 @@ Type: `String`
 Message title. If not specified then Pushover will use the application name as the message title.
 
 #### priority
-Type: `Number` (default: 0)
+Type: `Number` Default: 0
 
 Message priority may be `-1` (lowest) to `2` (highest). Refer to [Pushover API](https://pushover.net/api#priority) for more information.
 
@@ -85,7 +82,7 @@ Type: `Number`
 Interval (in seconds) between priority-2 message retries.
 
 #### timestamp
-Type: `Number` (default: current time)
+Type: `Number` Default: current time
 
 A Unix timestamp. The client automatically sets this to avoid messages showing up out of order on the device.
 
@@ -100,7 +97,7 @@ Type `String`
 Supplementary URL.
 
 #### urlTitle
-Type: `String` (default: URL)
+Type: `String` Default: URL
 
 Title for supplementary URLs.
 
