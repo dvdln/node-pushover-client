@@ -1,7 +1,7 @@
-[![Pushover](./site/logo.png)][site]
+[![Pushover](https://raw.github.com/dvdln/node-pushover-client/master/site/logo.png)][site]
 
 # node-pushover-client
-> Send push notifications to iOS and Android using [Pushover][site].
+Send push notifications to iOS and Android using [Pushover][site].
 
 [![npm](https://badge.fury.io/js/node-pushover-client.png)](http://badge.fury.io/js/node-pushover-client)
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
