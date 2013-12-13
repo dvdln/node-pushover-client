@@ -3,16 +3,10 @@
 # node-pushover-client
 > Send push notifications to iOS and Android using [Pushover][site].
 
+[![npm](https://badge.fury.io/js/node-pushover-client.png)](http://badge.fury.io/js/node-pushover-client)
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
 [![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
-[![devDependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
-
-## Installation
-Install with [npm][npm].
-
-```shell
-$ npm install node-pushover-client
-```
+[![Dev Dependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
 
 ## Usage
 [Register an application with Pushover.net][site-app] to get your application and user tokens. You may optionally set `PUSHOVER_TOKEN` and `PUSHOVER_USER` environment variables to use as default values.
@@ -42,7 +36,7 @@ var req = (new Pushover()).send({
 ```
 
 ### Command Line Usage
-```shell
+```sh
 $ npm -g install node-pushover-client
 $ pushover --help
 ```
@@ -108,7 +102,28 @@ Type: `String`
 
 Name of a [supported sound][api-sounds] to play on the app.
 
----
+## License
+The MIT License (MIT)
+
+Copyright (c) 2013 [David Lane](mailto:me@dvdln.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
   [site]:           https://pushover.net                "Pushover"
   [site-app]:       https://pushover.net/apps/build     "Pushover: Register Application"
@@ -116,12 +131,3 @@ Name of a [supported sound][api-sounds] to play on the app.
   [api]:            https://pushover.net/api            "Pushover API"
   [api-priority]:   https://pushover.net/api#priority   "Pushover API: Priority"
   [api-sounds]:     https://pushover.net/api#sounds     "Pushover API: Sounds"
-  [npm]:            https://npmjs.org                   "npm"
-
-Copyright (c) 2013 [David Lane](http://dvdln.com)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
