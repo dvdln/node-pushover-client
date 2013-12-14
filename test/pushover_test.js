@@ -139,5 +139,41 @@ module.exports = {
         test.done();
       }
     );
+  },
+
+  testMessageTooLong: function (test) {
+    var message = '';
+    for (var i = 0; i < 513; i++) {
+      message += 'X';
+    }
+
+    (new Pushover()).send({ message: message }).then(
+      function () {
+        test.ok(false, 'Call should fail.');
+        test.done();
+      },
+      function () {
+        test.ok(true, 'Message too long');
+        test.done();
+      }
+    );
+  },
+
+  testMessageOkaySize: function (test) {
+    var message = '';
+    for (var i = 0; i < 512; i++) {
+      message += 'X';
+    }
+
+    (new Pushover()).send({ message: message }).then(
+      function () {
+        test.ok(true, 'Message length okay.');
+        test.done();
+      },
+      function () {
+        test.ok(false, 'Call should succeed.');
+        test.done();
+      }
+    );
   }
 };
