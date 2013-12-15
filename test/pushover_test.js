@@ -49,6 +49,9 @@ module.exports = {
             'url=http%3A%2F%2Furl.test&url_title=URL&sound=SOUND\n');
 
         test.done();
+      },
+      function (err) {
+        console.log(err);
       }
     );
   },
