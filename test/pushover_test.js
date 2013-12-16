@@ -49,9 +49,6 @@ module.exports = {
             'url=http%3A%2F%2Furl.test&url_title=URL&sound=SOUND\n');
 
         test.done();
-      },
-      function (err) {
-        console.log(err);
       }
     );
   },
@@ -66,7 +63,7 @@ module.exports = {
       function (res) {
         var req = https.mock.getRequest();
 
-        test.deepEqual(res, { status: 1, success: true });
+        test.ok(res.success, 'Success.');
         test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE\n');
 
         test.done();
@@ -87,7 +84,7 @@ module.exports = {
       function (res) {
         var req = https.mock.getRequest();
 
-        test.deepEqual(res, { status: 1, success: true });
+        test.ok(res.success, 'Success.');
         test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE&' +
             'priority=2&expire=3600&retry=30\n');
 
@@ -104,14 +101,10 @@ module.exports = {
         priority: 2
       }
     ).then(
-      function () {
-        test.ok(false, 'Call should fail.');
-        test.done();
-      },
       function (res) {
         var req = https.mock.getRequest();
 
-        test.ok(res.error.length > 0);
+        test.ok(res.errors.length > 0);
         test.equal(res.status, null);
         test.equal(req.data, '');
 
@@ -129,16 +122,11 @@ module.exports = {
         timestamp: null
       }
     ).then(
-      function () {
-        test.ok(false, 'Call should fail.');
-        test.done();
-      },
       function (res) {
-        test.deepEqual(res, {
-          status: 0,
-          errors: ['FAIL'],
-          success: false
-        });
+        test.equal(res.success, false);
+        test.equal(res.status, 0);
+        test.deepEqual(res.errors, ['FAIL']);
+
         test.done();
       }
     );
@@ -151,10 +139,6 @@ module.exports = {
     }
 
     (new Pushover()).send({ message: message }).then(
-      function () {
-        test.ok(false, 'Call should fail.');
-        test.done();
-      },
       function () {
         test.ok(true, 'Message too long');
         test.done();
@@ -171,10 +155,6 @@ module.exports = {
     (new Pushover()).send({ message: message }).then(
       function () {
         test.ok(true, 'Message length okay.');
-        test.done();
-      },
-      function () {
-        test.ok(false, 'Call should succeed.');
         test.done();
       }
     );
