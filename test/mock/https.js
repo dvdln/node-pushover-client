@@ -28,6 +28,7 @@ https.request = function (options, callback) {
     },
     end: function () {
       request.cb.data(response.content);
+      request.cb.end();
     }
   };
 };
