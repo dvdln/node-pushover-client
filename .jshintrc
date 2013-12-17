@@ -2,7 +2,6 @@
   "newcap":     false,
   "curly":      true,
   "eqeqeq":     true,
-  "global":     ["Promise"],
   "immed":      true,
   "indent":     2,
   "latedef":    true,
@@ -13,5 +12,9 @@
   "strict":     true,
   "trailing":   true,
   "maxlen":     80,
-  "node":       true
+  "node":       true,
+
+  "globals": {
+    "Promise": false
+  }
 }
