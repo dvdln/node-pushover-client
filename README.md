@@ -7,6 +7,7 @@ Send push notifications to iOS and Android using [Pushover][site].
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
 [![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
 [![Dev Dependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Usage
 [Register an application with Pushover.net][site-app] to get your application and user tokens. You may optionally set `PUSHOVER_TOKEN` and `PUSHOVER_USER` environment variables to use as default values.
