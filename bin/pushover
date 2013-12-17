@@ -11,6 +11,7 @@ program
   .option('-t, --token [id]', 'application token', String)
   .option('-u, --user [id]', 'user token', String)
   .option('-p, --priority [n]', 'priority (-1 to 2)', parseInt)
+  .option('-d, --device [id]', 'device to send to', String)
   .parse(process.argv);
 
 (new Pushover()).send({
@@ -19,4 +20,11 @@ program
   message:  program.args.pop(),
   title:    program.args.pop(),
   priority: program.priority
+}).then(function (res) {
+  if (res.success) {
+    console.log('Message sent!');
+  } else {
+    console.error('Error: ' + res.errors);
+    process.exit(1);
+  }
 });
