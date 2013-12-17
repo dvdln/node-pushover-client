@@ -2,13 +2,13 @@
 
 process.argv.push('--config', './test/fixtures/pushoverrc');
 
-var https = require('./mock/https'),
+var mockRequest = require('./mock/superagent'),
     Pushover = require('../lib/pushover');
 
 module.exports = {
   setUp: function (callback) {
-    https.mock.reset();
-    https.mock.setResponse('{"status":1}');
+    mockRequest.reset();
+    mockRequest.setResponseBody({ status: 1 });
 
     callback();
   },
@@ -18,35 +18,43 @@ module.exports = {
   },
 
   testPush: function (test) {
-    var push = new Pushover(
-      {
-        token: 'TOKEN',
-        user: 'USER',
-        unknown: 'foo'
-      }
-    );
+    var baseData = {
+      token: 'TOKEN',
+      user: 'USER',
+      unknown: 'foo'
+    };
 
-    push.send(
-      {
-        title: 'TITLE',
-        message: 'MESSAGE',
-        timestamp: 123,
-        priority: -1,
-        url: 'http://url.test',
-        urlTitle: 'URL',
-        sound: 'SOUND',
-        device: 'DEVICE',
-        unknown: 'bar'
-      }
-    ).then(
+    var userData = {
+      title: 'TITLE',
+      message: 'MESSAGE',
+      timestamp: 123,
+      priority: -1,
+      url: 'http://url.test',
+      urlTitle: 'URL',
+      sound: 'SOUND',
+      device: 'DEVICE',
+      unknown: 'bar'
+    };
+
+    var expected = {
+      token: 'TOKEN',
+      user: 'USER',
+      message: 'MESSAGE',
+      timestamp: 123,
+      title: 'TITLE',
+      priority: -1,
+      device: 'DEVICE',
+      url: 'http://url.test',
+      url_title: 'URL',
+      sound: 'SOUND'
+    };
+
+    (new Pushover(baseData)).send(userData).then(
       function (res) {
-        var req = https.mock.getRequest();
+        var req = mockRequest.data;
 
-        test.equal(req.encoding, 'utf8');
         test.deepEqual(res, { status: 1, success: true });
-        test.equal(req.data, 'token=TOKEN&user=USER&message=MESSAGE&' +
-            'timestamp=123&title=TITLE&priority=-1&device=DEVICE&' +
-            'url=http%3A%2F%2Furl.test&url_title=URL&sound=SOUND\n');
+        test.deepEqual(req.payload, expected);
 
         test.done();
       }
@@ -54,17 +62,25 @@ module.exports = {
   },
 
   testMinimal: function (test) {
-    (new Pushover()).send(
-      {
-        message: 'MESSAGE',
-        timestamp: null
-      }
-    ).then(
+    var baseData = null;
+
+    var userData = {
+      message: 'MESSAGE',
+      timestamp: null
+    };
+
+    var expected = {
+      token: 'ENV_TOKEN',
+      user: 'ENV_USER',
+      message: 'MESSAGE'
+    };
+
+    (new Pushover(baseData)).send(userData).then(
       function (res) {
-        var req = https.mock.getRequest();
+        var req = mockRequest.data;
 
         test.ok(res.success, 'Success.');
-        test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE\n');
+        test.deepEqual(req.payload, expected);
 
         test.done();
       }
@@ -72,21 +88,31 @@ module.exports = {
   },
 
   testEmergencyPriority: function (test) {
-    (new Pushover()).send(
-      {
-        message: 'MESSAGE',
-        timestamp: null,
-        priority: 2,
-        retry: 30,
-        expire: 3600
-      }
-    ).then(
+    var baseData = null;
+
+    var userData = {
+      message: 'MESSAGE',
+      timestamp: null,
+      priority: 2,
+      retry: 30,
+      expire: 3600
+    };
+
+    var expected = {
+      token: 'ENV_TOKEN',
+      user: 'ENV_USER',
+      message: 'MESSAGE',
+      priority: 2,
+      expire: 3600,
+      retry: 30
+    };
+
+    (new Pushover(baseData)).send(userData).then(
       function (res) {
-        var req = https.mock.getRequest();
+        var req = mockRequest.data;
 
         test.ok(res.success, 'Success.');
-        test.equal(req.data, 'token=ENV_TOKEN&user=ENV_USER&message=MESSAGE&' +
-            'priority=2&expire=3600&retry=30\n');
+        test.deepEqual(req.payload, expected);
 
         test.done();
       }
@@ -102,11 +128,11 @@ module.exports = {
       }
     ).then(
       function (res) {
-        var req = https.mock.getRequest();
+        var req = mockRequest.data;
 
         test.ok(res.errors.length > 0);
         test.equal(res.status, null);
-        test.equal(req.data, '');
+        test.equal(req.payload, null);
 
         test.done();
       }
@@ -114,7 +140,7 @@ module.exports = {
   },
 
   testServiceFailure: function (test) {
-    https.mock.setResponse('{"status":0,"errors":["FAIL"]}');
+    mockRequest.setResponseBody({status:0, errors:['FAIL']});
 
     (new Pushover()).send(
       {

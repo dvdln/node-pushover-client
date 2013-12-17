@@ -35,7 +35,9 @@
     "lodash": "~2.4.1",
     "commander": "~2.1.0",
     "rc": "~0.3.2",
-    "q": "~0.9.7"
+    "q": "~0.9.7",
+    "es6-promise": "~0.1.0",
+    "superagent": "~0.15.7"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
