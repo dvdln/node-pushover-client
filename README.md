@@ -5,8 +5,7 @@ Send push notifications to iOS and Android using [Pushover][site].
 
 [![npm](https://badge.fury.io/js/node-pushover-client.png)](http://badge.fury.io/js/node-pushover-client)
 [![Build Status](https://travis-ci.org/dvdln/node-pushover-client.png)](https://travis-ci.org/dvdln/node-pushover-client)
-[![Dependency Status](https://david-dm.org/dvdln/node-pushover-client.png)](https://david-dm.org/dvdln/node-pushover-client)
-[![Dev Dependency Status](https://david-dm.org/dvdln/node-pushover-client/dev-status.png)](https://david-dm.org/dvdln/node-pushover-client#info=devDependencies)
+[![Dependency Status](https://gemnasium.com/dvdln/node-pushover-client.png)](https://gemnasium.com/dvdln/node-pushover-client)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Usage
