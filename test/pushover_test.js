@@ -2,13 +2,13 @@
 
 process.argv.push('--config', './test/fixtures/pushoverrc');
 
-var mockRequest = require('./mock/superagent'),
+var mockRequest = require('./mock/request'),
     Pushover = require('../lib/pushover');
 
 module.exports = {
   setUp: function (callback) {
     mockRequest.reset();
-    mockRequest.setResponseBody({ status: 1 });
+    mockRequest.setResponseBody('{"status":1}');
 
     callback();
   },
@@ -140,7 +140,7 @@ module.exports = {
   },
 
   testServiceFailure: function (test) {
-    mockRequest.setResponseBody({status:0, errors:['FAIL']});
+    mockRequest.setResponseBody('{"status":0,"errors":["FAIL"]}');
 
     (new Pushover()).send(
       {
