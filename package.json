@@ -36,8 +36,7 @@
     "commander": "~2.1.0",
     "rc": "~0.3.3",
     "es6-promise": "~0.1.0",
-    "request": "~2.30.0",
-    "grunt-contrib-jshint": "~0.8.0"
+    "request": "~2.30.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
