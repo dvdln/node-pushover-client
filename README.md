@@ -12,7 +12,7 @@ Send push notifications to iOS and Android using [Pushover][site].
 [Register an application with Pushover.net][site-app] to get your application and user tokens. You may optionally set `PUSHOVER_TOKEN` and `PUSHOVER_USER` environment variables to use as default values.
 
 ```js
-var Pushover = require('pushover');
+var Pushover = require('node-pushover-client');
 
 var pushNotification = new Pushover({
   token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi',
