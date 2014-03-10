@@ -32,18 +32,18 @@
     "url": "https://github.com/dvdln/node-pushover-client/issues"
   },
   "dependencies": {
-    "lodash": "~2.4.1",
-    "commander": "~2.1.0",
-    "rc": "~0.3.3",
-    "es6-promise": "~0.1.1",
-    "request": "~2.33.0"
+    "lodash": "^2.4.1",
+    "commander": "^2.1.0",
+    "rc": "^0.3.4",
+    "es6-promise": "^0.1.1",
+    "request": "^2.33.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-nodeunit": "~0.2.2",
-    "nodeunit": "~0.8.4"
+    "grunt": "^0.4.3",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-contrib-jshint": "^0.8.0",
+    "grunt-contrib-nodeunit": "^0.2.2",
+    "nodeunit": "^0.8.6"
   },
   "scripts": {
     "test": "grunt"
