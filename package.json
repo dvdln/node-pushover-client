@@ -1,51 +1,26 @@
 {
   "name": "node-pushover-client",
-  "license": "MIT",
+  "version": "2.0.0",
   "description": "Send push notifications to iOS and Android using Pushover.",
-  "homepage": "https://github.com/dvdln/node-pushover-client",
-  "keywords": [
-    "pushover",
-    "pushover.net",
-    "push",
-    "notification",
-    "ios",
-    "android",
-    "node",
-    "cli"
-  ],
-  "version": "1.4.0",
-  "author": {
-    "name": "David Lane",
-    "url": "http://dvdln.com"
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "form-data": "^2.1.2",
+    "node-fetch": "^1.6.3"
   },
-  "main": "lib/pushover",
-  "directories": {
-    "lib": "lib",
-    "bin": "bin",
-    "test": "test"
+  "devDependencies": {
+    "xo": "^0.17.1"
+  },
+  "scripts": {
+    "test": "xo"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/dvdln/node-pushover-client.git"
   },
-  "bugs": {
-    "url": "https://github.com/dvdln/node-pushover-client/issues"
-  },
-  "dependencies": {
-    "lodash": "^2.4.1",
-    "commander": "^2.1.0",
-    "rc": "^0.3.4",
-    "es6-promise": "^0.1.1",
-    "request": "^2.33.0"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.3",
-    "grunt-contrib-watch": "^0.5.3",
-    "grunt-contrib-jshint": "^0.8.0",
-    "grunt-contrib-nodeunit": "^0.3.2",
-    "nodeunit": "^0.8.6"
-  },
-  "scripts": {
-    "test": "grunt"
+  "author": "David Lane <me@dvdln.com>",
+  "license": "ISC",
+  "xo": {
+    "space": true
   }
 }

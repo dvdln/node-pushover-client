@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-'use strict';
-
-var Pushover = require('../lib/pushover'),
-    program = require('commander');
+const pkg = require('../package');
+const PushoverClient = require('../lib/pushover-client');
+const program = require('commander');
 
 program
-  .version(Pushover.version)
-  .usage('[options] [title] message')
+  .version(pkg.version)
+  .usage('[options] message')
+  .option('-s, --subject [title]', 'message title', String)
   .option('-t, --token [id]', 'application token', String)
   .option('-u, --user [id]', 'user token', String)
   .option('-e, --expires [seconds]', 'number of secs to keep trying', parseInt)
@@ -17,20 +17,21 @@ program
   .option('-d, --device [id]', 'device to send to', String)
   .parse(process.argv);
 
-(new Pushover()).send({
-  token:      program.token,
-  user:       program.user,
-  expires:    program.expires,
-  retry:      program.retry,
-  timestamp:  program.timestamp || Math.floor(new Date().getTime() / 1000),
-  message:    program.args.pop(),
-  title:      program.args.pop(),
-  priority:   program.priority
-}).then(function (res) {
-  if (res.success) {
-    console.log('Message sent!');
-  } else {
-    console.error('Error: ' + res.errors);
+new PushoverClient()
+  .send({
+    message:    program.args.pop(),
+    token:      program.token,
+    user:       program.user,
+    title:      program.subject,
+    expires:    program.expires,
+    retry:      program.retry,
+    timestamp:  program.timestamp,
+    priority:   program.priority
+  })
+  .then(function (res) {
+    console.log(`Sent request: ${res.request}`);
+  })
+  .catch(err => {
+    console.error(err);
     process.exit(1);
-  }
-});
+  });
