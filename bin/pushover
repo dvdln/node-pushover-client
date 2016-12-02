@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
+const program = require('commander');
 const pkg = require('../package');
 const PushoverClient = require('../lib/pushover-client');
-const program = require('commander');
 
 program
   .version(pkg.version)
@@ -19,14 +19,14 @@ program
 
 new PushoverClient()
   .send({
-    message:    program.args.pop(),
-    token:      program.token,
-    user:       program.user,
-    title:      program.subject,
-    expires:    program.expires,
-    retry:      program.retry,
-    timestamp:  program.timestamp,
-    priority:   program.priority
+    message: program.args.pop(),
+    token: program.token,
+    user: program.user,
+    title: program.subject,
+    expires: program.expires,
+    retry: program.retry,
+    timestamp: program.timestamp,
+    priority: program.priority
   })
   .then(function (res) {
     console.log(`Sent request: ${res.request}`);
