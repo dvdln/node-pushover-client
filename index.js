@@ -1,3 +1,3 @@
-const PushoverClient = require('./lib/pushover-client');
+const Pushover = require('./lib/pushover-client');
 
-module.exports = PushoverClient;
+module.exports = Pushover;
