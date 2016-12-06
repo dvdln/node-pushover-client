@@ -1,6 +1,6 @@
 {
   "name": "node-pushover-client",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Send push notifications to iOS and Android using Pushover.",
   "main": "index.js",
   "dependencies": {
