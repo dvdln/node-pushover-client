@@ -1,9 +1,10 @@
 {
   "name": "node-pushover-client",
-  "version": "2.1.0",
-  "description": "Send push notifications to iOS and Android using Pushover.",
+  "version": "2.1.1",
+  "description": "Send push notifications to iOS and Android using Pushover. Include image attachment support.",
   "main": "index.js",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "commander": "^2.9.0",
     "form-data": "^2.1.2",
     "lodash": "^4.17.2",
@@ -20,6 +21,12 @@
     "url": "git://github.com/dvdln/node-pushover-client.git"
   },
   "author": "David Lane <me@dvdln.com>",
+  "contributors": [ 
+    {
+      "name": "Carlos Cordero",
+      "url": "http://www.carloscordero.com"
+    }
+  ],
   "license": "ISC",
   "xo": {
     "space": true
