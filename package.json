@@ -1,7 +1,7 @@
 {
   "name": "node-pushover-client",
   "version": "2.1.1",
-  "description": "Send push notifications to iOS and Android using Pushover. Include image attachment capabilities.",
+  "description": "Send push notifications to iOS and Android using Pushover. Include image attachment support.",
   "main": "index.js",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
