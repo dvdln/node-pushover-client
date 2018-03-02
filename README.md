@@ -1,6 +1,8 @@
 # node-pushover-client
 Send push notifications to iOS and Android using [Pushover][site].
 
+Compatible with Pushover 3.0 api, it now can send an attached image.
+
 ## Usage
 [Register an application with Pushover.net][site-app] to get your application and user tokens.
 
@@ -30,6 +32,18 @@ Pushover.send({
   token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi',
   user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG',
   message: 'Hello World'
+});
+```
+
+You also can attach an image. Full filepath must be specified.
+Pushover's api limits must be followed: "Each message may only include one attachment, and attachments are currently limited to 2,621,440 bytes (2.5 megabytes)."
+
+```js
+Pushover.send({
+  token: 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi',
+  user: 'uQiRzpo4DXghDmr9QzzfQu27cmVRsG',
+  message: 'Hello World',
+  attachment: FILEPATH
 });
 ```
 

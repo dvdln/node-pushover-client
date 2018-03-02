@@ -15,6 +15,7 @@ program
   .option('-i, --timestamp [timestamp]', 'a unix timestamp', parseInt)
   .option('-p, --priority [n]', 'priority (-1 to 2)', parseInt)
   .option('-d, --device [id]', 'device to send to', String)
+  .option('-f, --file [file]', 'file to attach', String)
   .parse(process.argv);
 
 new PushoverClient()
@@ -26,7 +27,8 @@ new PushoverClient()
     expires: program.expires,
     retry: program.retry,
     timestamp: program.timestamp,
-    priority: program.priority
+    priority: program.priority,
+    attachment: program.attachment
   })
   .then(function (res) {
     console.log(`Sent request: ${res.request}`);
